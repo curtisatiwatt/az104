@@ -1,6 +1,8 @@
 # Azure Path · AZ-104 学习空间
 
-一个面向已有 Azure 实操经验学习者的中文备考网站。把课程、练习题、真实 Azure 实验和可勾选计划放在一起，按掌握情况决定下一步，而不是只统计读过多少页。
+一个面向已有 Azure 实操经验学习者的中英双语备考网站。课程、题库、实验、计划和操作界面都支持中文 / English；切换语言保留已有进度和答题状态。
+
+A bilingual AZ-104 study workspace with complete Chinese and English lessons, questions, explanations, labs, and checklists. Built for learners with Azure experience and roughly 10–12 study hours per week.
 
 **网站：** [curtisatiwatt.github.io/az104](https://curtisatiwatt.github.io/az104/)  
 **源码：** [curtisatiwatt/az104](https://github.com/curtisatiwatt/az104)
@@ -8,16 +10,17 @@
 ## 包含什么
 
 - **8 个学习阶段、48 项任务、约 88 小时**。默认每周 11 小时，适合每周有 10–12 小时的学习者；支持更改开始日期和每周时间，自动重算阶段起点与目标日期。
-- **20 节中文课程**，涵盖身份与治理、存储、计算、虚拟网络、监控与恢复。每节包含原理、易错点、自检、官方参考和学习笔记。
-- **100 道原创情境题**，五个领域各 20 道，其中 18 道多选。每题提供答案、整体解析、各选项解释和 Microsoft Learn 参考。
+- **20 节中英双语课程**，涵盖身份与治理、存储、计算、虚拟网络、监控与恢复。每节包含原理、易错点、自检、官方参考和学习笔记。
+- **100 道原创情境题的完整中英文版本**，五个领域各 20 道，其中 18 道多选。每题提供答案、整体解析、各选项解释和 Microsoft Learn 参考；两个语言版本使用相同题目 ID 与答案。
 - **12 个实验**，包含操作步骤、验收方法、交付物和资源清理。实验需在自己的 Azure 环境实际操作；本站不连接 Azure，也不会替你创建云资源。
 - **练习与复盘**：10 题日常练习、领域筛选、错题重练、收藏、50 题计时模考、断点继续、历史成绩及领域覆盖度。
 - **进度管理**：任务与课程完成记录、实验步骤和清理勾选、笔记、最近学习足迹，以及 JSON 备份导出与导入。
+- **加密云同步**：通过一次性设备配对连接自己的电脑和手机，之后自动同步和合并进度。
 - 桌面和手机布局、键盘导航、焦点样式及减少动画偏好支持。
 
 ## 建议怎样学习
 
-第一次打开时，先在「计划与数据设置」确认开始日期和每周投入。默认节奏是每周 4 次 × 90 分钟学习、1 次 × 3 小时实操、1 次 × 2 小时复盘，另留一天休息。
+第一次打开时，可用右上角的「中文 / English」选择语言，再在「计划与数据设置 / Plan & data settings」确认开始日期和每周投入。默认节奏是每周 4 次 × 90 分钟学习、1 次 × 3 小时实操、1 次 × 2 小时复盘，另留一天休息。
 
 | 阶段 | 重点 | 预计投入 |
 | --- | --- | --- |
@@ -48,21 +51,39 @@
 
 内容核对日期：**2026-11-13**。课程与题目均附官方链接；报考前请再次查看 [AZ-104 官方学习指南](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104) 和 [Azure Administrator 认证页](https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/)。这是独立学习项目，与 Microsoft 无隶属关系。
 
-## 进度保存与迁移
+## 进度与跨设备同步
 
-学习数据保存在当前浏览器当前网站来源下的 `localStorage`，键名为 `az104-studio-v1`。无需登录，也没有云端数据库。源码提交和 GitHub Pages 发布不会上传个人笔记、答题记录或学习进度。
+**云同步已部署并通过真实服务验证。** API 为 `https://az104-progress-sync.pages.dev`，由 Cloudflare Pages advanced mode + D1 提供。已验证两份独立设备记录的并发合并、中英文笔记往返、取消勾选传播、跨域请求和加密存储；前端仍使用原 GitHub Pages 地址。
 
-- 刷新或重新访问同一网站，可以继续学习；模考倒计时按实际截止时间计算，离开页面不会暂停计时。
-- 不同浏览器、设备，以及本地预览与线上网站之间，数据各自独立。
-- 在「计划与数据设置」导出 JSON，在目标浏览器导入即可迁移；导入需确认，并替换目标浏览器现有记录。
-- 清除浏览器网站数据或使用临时浏览环境，可能丢失记录。建议每周导出一次。
-- 笔记只记录学习结论与无敏感信息的证据，不保存 Azure 密钥、密码或 SAS。
+学习首先保存在当前浏览器的 `localStorage`，主进度键为 `az104-studio-v1`。刷新后可以继续；模考按真实截止时间计时，离开页面不会暂停。语言偏好保存在设备本地的 `az104-language`，不随云进度同步。
 
-实验中的 Azure 资源可能产生费用。各实验提供费用提醒和清理步骤；预算告警本身不会自动停止消费。
+跨设备使用方式：
+
+1. 在第一台设备的设置中创建云同步空间。已有本地任务、课程、实验、笔记和答题记录会纳入同步。
+2. 保存生成的 `AZ104.…` 配对密钥，在另一台设备输入同一密钥连接。每台设备通常只需配对一次，不需要注册账号。
+3. 正常学习即可。在线时修改会自动同步，回到页面或重新联网后会继续检查；离线修改先保存在本机，等待网络恢复。以界面的同步状态确认是否已完成上传。
+
+配对密钥长期代表这份云进度的访问权限，作用相当于密码：持有者可以读取、解密和修改这份进度。请私下保存，不要放进公开仓库、截图或聊天分享。连接的浏览器会保存密钥，以便下次自动连接；没有账号密码找回流程，因此仍建议定期导出备份。
+
+同步如何处理两台设备的修改：
+
+- 不同任务、课程、实验步骤和收藏分别合并；一台设备完成任务 A，另一台完成 B，两项都保留。撤销勾选和取消收藏也会同步。
+- 同一项、同一篇笔记或同一个计划字段发生冲突时，保留最后修改的值；同时修改同一篇笔记不会逐段合并。
+- 答题和模考历史取去重后的合集。学习足迹保留活跃日期，同一天的操作次数取两侧较大值，属于近似活动统计。
+- 当前练习 / 模考会话整体采用最后修改的版本；不要在两台设备同时作答同一场练习，以免其中一份会话状态被替换。
+- 在设置中导入备份或清空本机记录，会先断开云同步，保护现有云进度。它们不会删除云端副本；重新连接原密钥时，云端进度会再次参与合并。
+
+数据在浏览器中通过 AES-GCM 加密后上传。配对主密钥和加密密钥不会发送到服务端；认证使用单独派生的密钥。D1 保存密文、认证派生值的哈希索引、版本与更新时间，服务还维护创建频率限制。GitHub 源码及 Pages 构建产物不包含个人笔记、答题记录或配对密钥。
+
+JSON 导出 / 导入始终可用，适合未启用云同步时迁移设备。导入会在确认后替换本机进度。不同浏览器、不同网站来源，以及本地预览与线上网站的本地数据各自独立；清理浏览器数据可能移除本地记录和配对信息。
+
+**English quick start:** Select **English**, set your start date and weekly hours in **Plan & data settings**, and follow the checklist. Create a sync space on your first device and enter its private pairing key on another device. Progress is encrypted before upload and offline changes are queued locally. Keep the pairing key private and export regular JSON backups. Language choice stays local to each device.
+
+实验中的 Azure 资源可能产生费用。各实验提供费用提醒和清理步骤；预算告警本身不会自动停止消费。学习笔记不要保存 Azure 密钥、密码或 SAS。
 
 ## 本地开发
 
-需要 **Node.js 22 或更新版本**。项目使用原生 HTML、CSS 和 ES Modules，没有第三方运行或构建依赖，无需运行 `npm install`。
+需要 **Node.js 22 或更新版本**。前端使用原生 HTML、CSS 和 ES Modules，没有第三方运行或构建依赖，无需运行 `npm install`。Cloudflare 后端需单独部署。
 
 ```bash
 git clone https://github.com/curtisatiwatt/az104.git
@@ -73,7 +94,7 @@ npm run dev
 打开 [http://127.0.0.1:5184](http://127.0.0.1:5184)。请通过 HTTP 服务访问，直接双击 `index.html` 不适合 ES Module 应用。
 
 ```bash
-# 运行数据和核心学习逻辑测试
+# 运行内容、双语一致性、学习逻辑、同步合并与加密测试
 npm test
 
 # 生成可部署静态文件
@@ -88,20 +109,28 @@ node scripts/serve.mjs --dist
 ## 项目结构
 
 ```text
-index.html                 页面入口与阅读弹窗
-styles.css                 响应式样式
-app.js                     页面、阅读、实验、刷题与交互
-core.js                    日期、抽题、评分、统计与数据校验
-data/curriculum.js         五个领域、20 节课程、8 阶段计划与资源
-data/questions.js          100 道原创题与解析
-data/labs.js               12 个实验步骤与验收
-scripts/serve.mjs          本地静态服务，端口 5184
-scripts/build.mjs          生成 dist/
-tests/                     数据与核心逻辑测试
+index.html                   页面入口与阅读弹窗
+styles.css / i18n.css         响应式与双语布局
+app.js                       页面、阅读、实验、刷题与交互
+core.js                      日期、抽题、评分、统计与数据校验
+i18n.js                      界面翻译与本机语言偏好
+data/curriculum[.en].js       20 节课程、8 阶段计划与资源
+data/questions[.en].js        100 道原创题的中英文内容
+data/labs[.en].js             12 个实验的中英文内容
+cloud-sync.js                云连接、离线保存、重试与并发同步
+sync-model.js                字段合并、删除标记与历史去重
+sync-crypto.js               配对密钥、HKDF 与 AES-GCM
+sync-config.js               部署后的云服务地址配置
+sync-service/worker.js       Cloudflare Worker 进度 API
+sync-service/schema.sql      D1 数据表
+scripts/serve.mjs            本地静态服务，端口 5184
+scripts/build.mjs            生成 GitHub Pages 前端 dist/
+scripts/build-sync.mjs       生成云同步后端 dist-sync/
+tests/                       内容、语言、应用逻辑和同步测试
 .github/workflows/pages.yml  GitHub Pages 自动部署
 ```
 
-新增或维护内容时，保持数据 ID 稳定；已保存的进度通过 ID 与课程、题目和步骤关联。题目答案使用从 0 开始的选项下标。修改后运行 `npm test` 和 `npm run build`，并检查实际页面中的阅读和作答流程。
+新增或维护内容时，保持数据 ID 稳定；已保存的进度通过 ID 与课程、题目和步骤关联。题目答案使用从 0 开始的选项下标。中英文内容必须保持 ID、答案、任务关联和实验步骤顺序一致；双语测试会检查遗漏翻译与结构差异。修改后运行 `npm test` 和 `npm run build`，并检查实际页面中的阅读和作答流程。
 
 ## GitHub Pages 发布
 
@@ -114,3 +143,43 @@ tests/                     数据与核心逻辑测试
 3. 部署到 `github-pages` 环境。
 
 也可以从工作流页面手动运行 `workflow_dispatch`。只有测试与构建成功后才会部署；发布状态与错误信息在仓库 Actions 中查看。
+
+
+## 云同步后端部署
+
+前端继续由 **GitHub Pages** 托管。云进度 API 通过 **Cloudflare Pages advanced mode** 执行 `sync-service/worker.js`，密文保存在 D1。两个发布流程独立，不能把前端的 `dist/` 当作同步后端上传。
+
+**生产 API 已部署：`https://az104-progress-sync.pages.dev`。** 资源标识和生产配置记录在 `sync-service/deployment.json`；该文件只有公开配置，没有凭据。以下是维护时的重复发布流程。
+
+1. 创建专用 D1 数据库，执行 `sync-service/schema.sql`，建立进度和创建限流数据表。
+2. 在仓库根目录生成后端文件：
+
+   ```bash
+   node scripts/build-sync.mjs
+   ```
+
+   产物为 `dist-sync/`。其中 `_worker.js` 是从 `sync-service/worker.js` 原样复制的实际 API 实现，`_routes.json` 将请求交给 Worker。
+
+3. 在 Cloudflare Pages 创建或选择 Direct Upload 项目 `az104-progress-sync`，上传 `dist-sync` 文件夹。也可上传 ZIP，但解压后的根目录必须直接包含 `_worker.js`、`_routes.json` 和 `index.html`，不能再包一层 `dist-sync/`。Pages 仪表板直接上传支持 advanced mode 的 `_worker.js`。[官方上传说明](https://developers.cloudflare.com/pages/get-started/direct-upload/)
+4. 在该 Pages 项目的 **Production** 设置中添加 D1 数据库绑定，变量名必须为 **`DB`**，并选择第一步的数据库。添加生产环境变量 **`ALLOWED_ORIGINS`**，值为允许的精确来源，用逗号分隔。线上来源是 `https://curtisatiwatt.github.io`，不含 `/az104/`；若需本地联调，可配置为 `https://curtisatiwatt.github.io,http://localhost:5184,http://127.0.0.1:5184`。生产设置使用 Fail closed。
+5. 保存绑定和环境变量后，**重新部署同一份 `dist-sync/`**，使生产配置生效。以后修改数据库绑定或环境变量，也应重新部署。[D1 绑定说明](https://developers.cloudflare.com/pages/functions/bindings/)
+6. 检查 `/health`，然后实际验证创建空间、读取、更新、版本冲突、错误密钥和 CORS。仅有健康响应不能证明 D1 读写正常。API 路径为 `/v1/progress`，使用独立派生的 Bearer 认证值和更新版本号。该域名服务于 API；学习网站入口仍是 GitHub Pages。
+7. 全部验证成功后，在 `sync-config.js` 设置公开的基础地址，再运行测试、构建并发布 GitHub Pages：
+
+   ```js
+   export const SYNC_ENDPOINT = 'https://az104-progress-sync.pages.dev';
+   ```
+
+   地址不带末尾斜杠。配置文件只包含公开服务地址，用户配对密钥始终不放入源码。
+
+后端仍是标准 Module Worker；构建脚本只是将它包装为 Pages advanced mode 的部署目录。[Advanced mode 说明](https://developers.cloudflare.com/pages/functions/advanced-mode/)
+
+Worker 当前限制每个来源 IP 每小时创建 3 个空间，整个个人服务最多 128 个空间，并限制请求大小。这套配置面向个人学习设备同步，不是公开多人平台的账号系统。源码不提供云空间删除 API；断开连接和本机重置不会删除 D1 中的密文。
+
+可运行一次显式的线上烟雾测试（会创建一个独立的合成测试空间，且不输出或保存密钥）：
+
+```bash
+node scripts/check-live-sync.mjs https://az104-progress-sync.pages.dev --create-test-space
+```
+
+常规 `npm test` 只在本地运行，不创建云端资源。

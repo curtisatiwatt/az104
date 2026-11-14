@@ -2,3 +2,9 @@ dist/
 node_modules/
 .DS_Store
 *.log
+.env
+.env.*
+.dev.vars
+*.private.json
+
+dist-sync/

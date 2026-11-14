@@ -1,0 +1,16 @@
+{
+  "platform": "Cloudflare Pages advanced mode",
+  "project": "az104-progress-sync",
+  "endpoint": "https://az104-progress-sync.pages.dev",
+  "account_id": "bd6d8dca11744133a46c139b32a5e4b1",
+  "database_name": "az104-progress",
+  "database_id": "af5eb707-b2c2-461a-9e0d-9389a1b4f3e5",
+  "binding": "DB",
+  "compatibility_date": "2026-11-14",
+  "allowed_origins": [
+    "https://curtisatiwatt.github.io",
+    "http://localhost:5184",
+    "http://127.0.0.1:5184"
+  ],
+  "fail_open": false
+}

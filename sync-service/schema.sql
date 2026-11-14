@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS progress_spaces (
+  id TEXT PRIMARY KEY,
+  payload TEXT NOT NULL,
+  revision INTEGER NOT NULL DEFAULT 1,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS creation_limits (
+  id TEXT PRIMARY KEY,
+  window INTEGER NOT NULL,
+  count INTEGER NOT NULL
+);
