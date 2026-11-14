@@ -1,0 +1,200 @@
+/* A reading-first phone layout. Keep this after locale and sync styles so both
+   languages share the same readable scale. Desktop typography is unchanged. */
+@media (max-width: 700px) {
+  :root { --muted: #665e73; }
+  body { font-size: 17px; line-height: 1.7; }
+  p { color: #5e5669; }
+  main { padding: 24px 16px 0; }
+  .sidebar { position: static; padding: 14px 16px 0; }
+  .brand { font-size: 22px; }
+  .brand small { display: none; }
+  .sidebar nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 12px 0; overflow: visible; }
+  html[lang] .nav-item { flex-direction: row; justify-content: center; gap: 7px; min-width: 0; min-height: 48px; padding: 8px 5px; font-size: 14px; line-height: 1.4; white-space: normal; color: #62596f; }
+  .nav-item span { min-width: 0; }
+  .nav-item .icon { width: 18px; height: 18px; }
+  html[lang] .nav-item.active { color: #5943a7; }
+  .topbar { padding: 10px 16px; min-height: 64px; height: auto; flex-wrap: wrap; gap: 8px; font-size: 14px; }
+  .topbar > div:first-child { font-size: 14px; color: #62596f; }
+  .topbar-right { margin-left: auto; gap: 6px; }
+  .language-switch button { font-size: 14px; min-height: 40px; padding: 8px 10px; }
+  .topbar .avatar { display: inline-flex; width: 40px; height: 40px; font-size: 16px; }
+  .cloud-indicator { min-width: 32px; min-height: 44px; }
+  .storage-warning { font-size: 14px; }
+
+  .page-heading { flex-direction: column; align-items: stretch; gap: 16px; margin-bottom: 24px; }
+  html[lang] .page-heading h1 { font-size: 28px; line-height: 1.35; }
+  .page-heading p, .section-heading p { font-size: 16px; line-height: 1.75; color: #625a6e; }
+  .eyebrow { font-size: 11px; letter-spacing: 1.2px; color: #70677c; }
+  html[lang] .page-heading > .button { margin: 0; max-width: none; align-self: flex-start; font-size: 16px; line-height: 1.5; }
+  html[lang] .button, html[lang] .quiz-controls .button, html[lang] .quiz-tools .button { font-size: 16px; line-height: 1.5; min-height: 48px; padding: 11px 15px; white-space: normal; }
+  .button .icon, .page-heading > .button .icon { width: 18px; height: 18px; }
+  .button.secondary { color: #625671; }
+  html[lang] .icon-button { min-width: 44px; min-height: 44px; padding: 10px; color: #716181; }
+  .icon-button .icon { width: 21px; height: 21px; }
+  .text-button { min-height: 44px; }
+  input[type=checkbox], .step-title input { width: 24px; height: 24px; }
+  .check-label, .reader-content .check-label, .cleanup .check-label { min-height: 44px; font-size: 16px; line-height: 1.7; color: #5e526b; }
+  .bilingual-control { font-size: 16px; line-height: 1.5; min-height: 48px; padding: 11px 13px; }
+
+  .hero { padding: 24px; background: linear-gradient(130deg, #6150b5, #7560c3); }
+  html[lang] .hero-copy { max-width: 100%; min-width: 0; }
+  html[lang] .hero h2 { font-size: 30px; line-height: 1.5; max-width: none; letter-spacing: 0; }
+  html[lang] .hero-copy > p { font-size: 16px; line-height: 1.75; max-width: none; color: #fff; letter-spacing: 0; }
+  .hero-badge { font-size: 11px; letter-spacing: .7px; color: #fff; }
+  html[lang] .hero-foot { font-size: 14px; line-height: 1.7; max-width: none; color: #fff; align-items: flex-start; }
+  .hero-foot .icon { width: 18px; height: 18px; margin-top: 3px; }
+  html[lang] .hero-art { opacity: .15; }
+  .stat-grid { gap: 12px; }
+  .stat-card { padding: 18px 16px; flex-direction: column; gap: 12px; min-width: 0; }
+  .stat-card > div { min-width: 0; }
+  html[lang] .stat-card small, html[lang] .stat-card div > span { font-size: 14px; line-height: 1.6; color: #625b6f; }
+  .stat-card strong { font-size: 34px; margin: 5px 0; }
+  .stat-card em, .report-stats em { font-size: 16px; color: #625b6f; }
+  .stat-icon { width: 36px; height: 36px; }
+  .stat-icon .icon { width: 20px; height: 20px; }
+  .panel { padding: 20px 18px; }
+  html[lang] .section-heading { align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  html[lang] .section-heading h2 { font-size: 21px; line-height: 1.5; }
+  .section-heading .subtle-link, .subtle-link { font-size: 15px; line-height: 1.5; min-height: 44px; color: #6948a5; }
+  .section-heading .tag { white-space: normal; }
+  .tag, .task-body .tag { font-size: 14px; line-height: 1.6; padding: 3px 8px; }
+  .tag.lab { color: #386d50; }
+  .tag.quiz { color: #785427; }
+  .tag.review { color: #485f83; }
+  .task-row { align-items: flex-start; gap: 10px; padding: 18px 0; }
+  .task-check { margin-top: 10px; }
+  html[lang] .task-title { font-size: 17px; line-height: 1.65; }
+  .task-detail { font-size: 15px; line-height: 1.75; color: #65576f; }
+  html[lang] .task-body > div { flex-wrap: wrap; gap: 7px; }
+  .task-body > div > span:not(.tag) { font-size: 14px; line-height: 1.5; color: #655b71; }
+  .task-body .icon { width: 15px; height: 15px; }
+  .completed .task-title { color: #6c6475; }
+  .domain-grid { grid-template-columns: 1fr; gap: 12px; }
+  .domain-card { padding: 20px; }
+  html[lang] .domain-card h3 { font-size: 19px; min-height: 0; line-height: 1.5; }
+  .domain-weight { font-size: 14px; color: #655a73; top: 26px; right: 20px; }
+  html[lang] .domain-card > p { font-size: 15px; color: #655a73; white-space: normal; max-width: none; }
+  html[lang] .domain-card > div:last-child { font-size: 14px; line-height: 1.6; flex-wrap: wrap; gap: 6px; }
+  .bottom-banner h3 { font-size: 19px; line-height: 1.5; color: #51435f; }
+  .bottom-banner p { font-size: 16px; color: #655970; }
+  footer { font-size: 14px; line-height: 1.7; color: #716779; }
+
+  .notice, .plan-summary { font-size: 16px; line-height: 1.75; color: #5e4e6b; }
+  .timeline { margin: 0; padding: 0; border: 0; }
+  .week-node { display: none; }
+  .week-card { padding: 22px 18px; }
+  html[lang] .week-header { flex-direction: column; gap: 8px; }
+  html[lang] .week-header h2 { font-size: 23px; line-height: 1.4; }
+  .week-header p { font-size: 16px; line-height: 1.75; }
+  .week-header .eyebrow, .week-count, .week-count small { font-size: 14px; color: #695b76; letter-spacing: 0; }
+  html[lang] .week-count { text-align: left; margin: 0 0 12px; white-space: normal; }
+  .filter { font-size: 15px; min-height: 44px; padding: 9px 11px; color: #65576f; }
+  .filter.selected { color: #614391; }
+  .search-box { min-height: 48px; }
+  .search-box input, .field input, .field select, .reader-content textarea, .cloud-key-box textarea { font-size: 17px; line-height: 1.6; color: #51465e; }
+  .search-box input::placeholder, .reader-content textarea::placeholder { color: #7b7086; }
+  .lesson-card { padding: 22px 20px; }
+  .lesson-number, .lab-id, .lab-meta, .card-footer > span { font-size: 14px; line-height: 1.6; letter-spacing: 0; color: #695775; }
+  .card-top, .lab-meta, .card-footer { flex-wrap: wrap; gap: 10px; }
+  .lesson-card h2 { font-size: 22px; line-height: 1.5; }
+  .lesson-card > p, html[lang] .mode-card p { font-size: 16px; line-height: 1.8; color: #62566b; }
+  .card-footer .text-button { font-size: 16px; }
+  html[lang] .mode-card h2 { font-size: 23px; line-height: 1.4; margin-right: 44px; }
+  html[lang] .mode-card p { max-width: none; }
+  .empty { font-size: 16px; color: #6b5c78; }
+
+  .question-list { padding: 0 16px; }
+  .question-row { gap: 10px; }
+  .question-row > div { min-width: 0; }
+  .question-state { font-size: 14px; width: 30px; height: 30px; color: #6a557f; }
+  .question-row .text-button { display: block; width: 100%; font-size: 17px; line-height: 1.75; overflow-wrap: anywhere; }
+  .question-tags, .question-tags > span:last-child:not(.tag) { font-size: 14px; color: #695b76; }
+  .question-tags .tag { white-space: normal; }
+  .quiz-panel { padding: 22px 18px; min-width: 0; }
+  .quiz-panel .muted { font-size: 14px; }
+  html[lang] .quiz-prompt { font-size: 21px; line-height: 1.7; }
+  html[lang] .answer-option { font-size: 17px; line-height: 1.75; padding: 16px 12px; gap: 10px; align-items: flex-start; }
+  .answer-option > span:nth-child(2) { min-width: 0; overflow-wrap: anywhere; }
+  .option-letter { width: 28px; height: 28px; font-size: 16px; color: #6a557e; }
+  .answer-option.chosen .option-letter { background: #7055a1; border-color: #7055a1; color: #fff; }
+  .question-translation, .question-row .question-translation { font-size: 1em; line-height: 1.75; color: #63566e; }
+  html[lang] .quiz-controls { flex-wrap: wrap; gap: 10px; }
+  .quiz-controls .push-right { min-width: 0; }
+  .quiz-controls .push-right .button { max-width: 100%; }
+  .quiz-tools { gap: 12px; }
+  .timer { font-size: 26px; }
+  .answer-sheet { order: 1; padding: 20px 18px; }
+  .answer-sheet h3 { font-size: 19px; }
+  .answer-sheet small { font-size: 14px; line-height: 1.7; color: #6a5b76; }
+  .answer-numbers { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+  .answer-numbers button { font-size: 15px; min-height: 44px; color: #665276; }
+  .answer-numbers button.right { color: #356247; }
+  .answer-numbers button.incorrect { color: #893d51; }
+  .result-body { color: #62516f; }
+  .explanation, .result-body { font-size: 17px; line-height: 1.8; padding: 18px 16px; }
+  .explanation h3 { font-size: 19px; line-height: 1.5; }
+  .explanation h3 span { font-size: 15px; }
+  .result-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
+  .result-banner h2 { font-size: 21px; }
+  .result-banner p, .result-item summary { font-size: 17px; line-height: 1.7; }
+  .result-item { padding: 18px 16px; }
+  .result-item summary { align-items: flex-start; gap: 10px; }
+  .result-item summary > span:nth-child(2) { min-width: 0; }
+
+  .report-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .report-stats .panel { padding: 18px 14px; }
+  .report-stats small, .domain-report small { font-size: 14px; line-height: 1.6; color: #6b5a77; }
+  .report-stats strong { font-size: 32px; }
+  .domain-report > div:first-child { font-size: 16px; flex-wrap: wrap; gap: 8px; color: #62516f; }
+  .domain-report strong { font-size: 16px; }
+  .readiness p { font-size: 17px; }
+  .dashboard-grid > .panel > p.muted { font-size: 16px; }
+  .activity-panel .muted { font-size: 14px; }
+  .activity-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+  .activity-day, .activity-day small { font-size: 14px; line-height: 1.6; color: #685876; }
+  .activity-day { padding: 8px 0; }
+  .activity-day.has-activity { background: #e1d4f1; color: #4f3a69; }
+  table { font-size: 16px; color: #62516f; }
+  th { font-size: 14px; color: #695575; }
+  th, td { padding: 12px 10px; }
+
+  .settings-grid { grid-template-columns: minmax(0, 1fr); }
+  .settings-grid > .panel { min-width: 0; }
+  .field { min-width: 0; font-size: 16px; color: #65516e; }
+  .field input, .field select { min-width: 0; width: 100%; }
+  .settings-grid p, .resource-panel p, .cloud-section > p, .cloud-key-box p, .cloud-details p { font-size: 16px; line-height: 1.8; color: #65576f; }
+  .small-text { font-size: 14px !important; }
+  .danger { font-size: 16px; color: #a34f65; }
+  .source-links a { font-size: 15px; line-height: 1.6; min-height: 44px; display: inline-flex; align-items: center; padding: 10px 12px; }
+  .cloud-heading .eyebrow { color: #70607f; }
+  .cloud-badge { color: #684b9b; }
+  .cloud-heading h2 { font-size: 22px; line-height: 1.5; }
+  .cloud-badge, .cloud-actions .muted { font-size: 14px; }
+  .cloud-actions .text-button { font-size: 16px; }
+  .cloud-details { font-size: 16px; color: #65576f; }
+  .cloud-details summary { min-height: 44px; padding: 8px 0; }
+  .cloud-message { font-size: 16px !important; }
+  .cloud-time { font-size: 14px !important; color: #75667e; }
+
+  dialog { width: calc(100% - 16px); max-width: 700px; max-height: calc(100dvh - 24px); }
+  .dialog-top { padding: 10px 16px; }
+  .dialog-top > span { font-size: 13px; letter-spacing: .5px; color: #70607f; }
+  .reader-content { padding: 22px 18px; overflow-wrap: anywhere; }
+  html[lang] .reader-content h1 { font-size: 27px; line-height: 1.4; }
+  html[lang] .reader-content section h2, .reader-content .callout h2 { font-size: 22px; line-height: 1.5; color: #65516f; }
+  html[lang] .reader-content section p, html[lang] .reader-content li, html[lang] .reader-content .reader-lead { font-size: 17px; line-height: 1.85; color: #5f526a; }
+  .reader-content small.muted { font-size: 14px; }
+  .callout { padding: 18px 16px; }
+  .step-title { font-size: 20px; line-height: 1.6; color: #65516f; align-items: flex-start; }
+  .step-title input { margin-top: 7px; }
+  .step-title small { font-size: 14px; letter-spacing: 1px; color: #746280; }
+  .code-wrap { min-width: 0; max-width: 100%; }
+  .code-wrap pre { font-size: 15px; padding: 58px 16px 18px; color: #f4edf9; }
+  .copy-button { font-size: 14px; min-height: 40px; padding: 8px 12px; color: #fff; }
+  .verify { font-size: 16px; line-height: 1.8; padding: 15px; }
+  .verify strong { font-size: 15px; }
+  .confirm-content { padding: 24px 20px; }
+  .confirm-content p { font-size: 17px; line-height: 1.8; }
+  .confirm-buttons { flex-wrap: wrap; }
+  #toast { width: max-content; max-width: calc(100vw - 32px); font-size: 16px; line-height: 1.6; padding: 14px 18px; }
+}
